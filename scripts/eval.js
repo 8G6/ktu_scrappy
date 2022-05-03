@@ -1,18 +1,3 @@
-async function show(page){
-    await page.waitForSelector('#curriculamTab')
-
-    await page.evaluate(()=>{
-       for(i=1;i<9;i++){ 
-           try{
-            document.querySelector(`#collapseFiveS${i}`).classList.add('in')
-           }
-           catch(e){
-               console.log(e)
-           }
-        }
-    })
-}
-
 
 async function login(page,user){
     await page.goto('https://app.ktu.edu.in/login.jsp').then(()=>{
@@ -36,7 +21,4 @@ async function login(page,user){
     });
 }
 
-module.exports = {
-    show:show,
-    login:login
-}
+module.exports = login
